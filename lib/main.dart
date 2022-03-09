@@ -1,3 +1,5 @@
+//konnnichiwa
+
 import 'package:flutter/material.dart';
 import 'package:test1/next_page.dart';
 
