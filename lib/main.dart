@@ -1,81 +1,68 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:test1/next_page.dart';
 
-void main() => runApp(MyApp());
-
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-       
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(kyohei: 'nann',),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key,required this.kyohei}) : super(key: key);
-final String kyohei;
-
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      
-      _counter++;
-    });
-  }
-
-
-String text = '次へ';
+  String text = '次へ';
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        
-        title: Text('KBOYのFlutter大学！！'),
-        
+        title: const Text('KBOYのFlutter大学！！'),
       ),
       body: Center(
         child: ElevatedButton(
           child: Text(text),
-        onPressed: () async { 
-       final result = await Navigator.push(
-           context,
-           MaterialPageRoute(builder: (context) => NextPage('じーこさん'),
-           ),
-         );
-         
-
-             setState(() {
-      
-    text = result;
-    });
-        },
-    ),
-    ),
-        
-      
+          onPressed: () async {
+            final result = await Navigator.push<String>(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NextPage('じーこさん'),
+              ),
+            );
+            if (result != null) {
+              setState(() {
+                text = result;
+              });
+            }
+          },
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          if (kDebugMode) {
+            print('ボタンを押しました');
+          }
+        },
         tooltip: 'Increment',
-        child: Icon(Icons.add),
-       // This trailing comma makes auto-formatting nicer for build methods.
-    ),
-  );
-  }}
+        child: const Icon(Icons.add),
+        // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+    );
+  }
+}
