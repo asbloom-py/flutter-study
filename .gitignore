@@ -44,7 +44,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-.fvm/
 .vscode/settings.json
+.fvm/flutter_sdk
 # .githooks/*
 # !/.githooks/pre-commit
