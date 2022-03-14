@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
     'KBOY 1',
     'KBOY 2',
     'KBOY 3',
-    'KBPY 4',
+    'Kyo 4',
   ];
 
   @override
