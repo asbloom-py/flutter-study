@@ -1,3 +1,6 @@
+// ignore: eol_at_end_of_file
+// ignore_for_file: inference_failure_on_function_invocation
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -28,47 +31,41 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String text = '次へ';
+  final items = [
+    'KBOY 1',
+    'KBOY 2',
+    'KBOY 3',
+    'KBPY 4',
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final center = Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(
-            width: double.infinity,
-            height: 100,
-            child: Text(
-              'KBOYさん',
-              textAlign: TextAlign.end,
-              style: TextStyle(
-                fontSize: 40,
-              ),
-            ),
-          ),
-          DefaultTextStyle(
-            style: const TextStyle(
-              fontSize: 20,
-              color: Colors.purple,
-            ),
-            child: Column(
-              children: const [
-                Text('ジーコさん'),
-                Text('ジーコさん'),
-                Text('ジーコさん'),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
     return Scaffold(
       appBar: AppBar(
         title: const Text('KBOYのFlutter大学！！'),
       ),
-      body: center,
+      body: SizedBox(
+        width: double.infinity,
+        child: GridView.count(
+          // Create a grid with 2 columns. If you change the scrollDirection to
+          // horizontal, this produces 2 rows.
+          crossAxisCount: 3,
+          // Generate 100 widgets that display their index in the List.
+          children: List.generate(
+            100,
+            (index) {
+              return Column(
+                children: <Widget>[
+                  Image.network(
+                    'https://pbs.twimg.com/profile_images/1459134588857761792/hLuvCmqo_400x400.jpg',
+                  ),
+                  Text('$index')
+                ],
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }
