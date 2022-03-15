@@ -46,24 +46,34 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SizedBox(
         width: double.infinity,
-        child: GridView.count(
-          // Create a grid with 2 columns. If you change the scrollDirection to
-          // horizontal, this produces 2 rows.
-          crossAxisCount: 3,
-          // Generate 100 widgets that display their index in the List.
-          children: List.generate(
-            100,
-            (index) {
-              return Column(
-                children: <Widget>[
-                  Image.network(
-                    'https://pbs.twimg.com/profile_images/1459134588857761792/hLuvCmqo_400x400.jpg',
-                  ),
-                  Text('$index')
-                ],
-              );
-            },
-          ),
+        child: ListView(
+          // This next line does the trick.
+          scrollDirection: Axis.vertical,
+          children: <Widget>[
+            Container(
+              width: 160,
+              height: 80,
+              color: Colors.red,
+            ),
+            Container(
+              width: 160,
+              height: 80,
+              color: Colors.blue,
+            ),
+            Container(
+              width: 160,
+              height: 80,
+              color: Colors.green,
+            ),
+            Container(
+              width: 160,
+              color: Colors.yellow,
+            ),
+            Container(
+              width: 160,
+              color: Colors.orange,
+            ),
+          ],
         ),
       ),
     );
