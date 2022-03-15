@@ -10,7 +10,7 @@ class VideoDetailPage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          child: Text('動画'),
+          child: Text('画像'),
         ),
       ),
     );
