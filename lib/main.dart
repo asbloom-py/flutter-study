@@ -1,78 +1,89 @@
-// ignore: eol_at_end_of_file
-// ignore_for_file: inference_failure_on_function_invocation
-
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(const App());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(
-        kyohei: 'テスト',
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.kyohei}) : super(key: key);
-  final String kyohei;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  final items = [
-    'KBOY 1',
-    'KBOY 2',
-    'KBOY 3',
-    'Kyo 4',
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('KBOYのFlutter大学！！'),
-      ),
-      body: SizedBox(
-        width: double.infinity,
-        child: ListView(
-          // This next line does the trick.
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
-            Container(
-              width: 160,
-              height: 80,
-              color: Colors.red,
+      theme: ThemeData(primaryColor: Colors.white),
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: false,
+          backgroundColor: const Color(0xffffffff),
+          leading: const Icon(Icons.videocam, color: Colors.black),
+          title: const Text(
+            'KBOYのFlutter大学',
+            textAlign: TextAlign.start,
+            style: TextStyle(color: Colors.black),
+          ),
+          actions: [
+            SizedBox(
+              width: 44,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  //to do
+                },
+                child: const Icon(Icons.search, color: Colors.black),
+              ),
             ),
-            Container(
-              width: 160,
-              height: 80,
-              color: Colors.blue,
-            ),
-            Container(
-              width: 160,
-              height: 80,
-              color: Colors.green,
-            ),
-            Container(
-              width: 160,
-              color: Colors.yellow,
-            ),
-            Container(
-              width: 160,
-              color: Colors.orange,
-            ),
+            SizedBox(
+              width: 44,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  //to do
+                },
+                child: const Icon(
+                  Icons.more_vert,
+                  color: Colors.black,
+                ),
+              ),
+            )
+          ],
+        ),
+        body: Column(
+          children: [
+            Row(
+              children: [
+                Image.network(
+                  'https://s3-ap-northeast-1.amazonaws.com/qiita-organization-image/562149f7ec4ab60dc93eb10dc4877d9453946b73/original.jpg?1599561074',
+                  width: 100,
+                ),
+                Column(
+                  children: [
+                    const Text('KBOYのFlutter大学'),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 44,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              textStyle: const TextStyle(fontSize: 20),
+                            ),
+                            onPressed: () {
+                              //to do
+                            },
+                            child: const Icon(
+                              Icons.video_call,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        const Text('登録する'),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            )
           ],
         ),
       ),
