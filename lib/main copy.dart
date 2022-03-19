@@ -1,53 +1,40 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    title: 'Navigation Basics',
-    home: FirstRoute(),
-  ));
+  runApp(MyApp());
 }
 
-class FirstRoute extends StatelessWidget {
-  const FirstRoute({Key? key}) : super(key: key);
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('First Route'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Open route'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SecondRoute()),
-            );
-          },
+    return MaterialApp(
+        theme: ThemeData.from(
+          colorScheme: const ColorScheme.light(primary: Colors.orange),
         ),
-      ),
-    );
-  }
-}
-
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Second Route'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
-        ),
-      ),
-    );
+        home: Scaffold(
+            appBar: AppBar(
+              centerTitle: true,
+              title: const Text(
+                'DestName',
+              ),
+              titleTextStyle: const TextStyle(color: Colors.black),
+              leading: const Icon(
+                Icons.clear,
+                color: Colors.black,
+              ),
+            ),
+            body: Card(
+              elevation: 4.0,
+              margin: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset('assets/neko1_600x400.jpg'),
+                  _titleArea(),
+                  _buttonArea(),
+                  _descriptionArea()
+                ],
+              ),
+            )));
   }
 }
