@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    App(
-      items: List<String>.generate(10000, (i) => 'Item $i'),
-    ),
-  );
-}
+void main() => runApp(App());
 
+// ignore: use_key_in_widget_constructors
 class App extends StatelessWidget {
-  final List<String> items;
+  final items = List<String>.generate(10000, (i) => 'Item $i');
 
-  // ignore: sort_constructors_first
-  const App({Key? key, required this.items}) : super(key: key);
-
-  @override
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -70,7 +61,7 @@ class App extends StatelessWidget {
                     height: 60,
                     child: Image.network(
                       'https://s3-ap-northeast-1.amazonaws.com/qiita-organization-image/562149f7ec4ab60dc93eb10dc4877d9453946b73/original.jpg?1599561074',
-                      width: 100,
+                      width: 60,
                     ),
                   ),
                   const SizedBox(
@@ -102,14 +93,21 @@ class App extends StatelessWidget {
                 ],
               ),
             ),
-            ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(items[index]),
-                );
-              },
-            )
+            Expanded(
+              child: ListView.builder(
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    contentPadding: const EdgeInsets.all(8),
+                    leading: Image.network(
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdb51KU2fpsY3_4wrF7Rd5oQu1YWm3xZrm1ohGVWrrUQLnZzTo65tZ1BWFfvR1dUAaMI&usqp=CAU',
+                      width: 100,
+                    ),
+                    title: const Text('【Fulutter超入門】リストを作る方法'),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
