@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'class VideoDitalPage extends StatelessWi.dart';
+
 void main() => runApp(App());
 
 // ignore: use_key_in_widget_constructors
@@ -98,12 +100,47 @@ class App extends StatelessWidget {
                 itemCount: items.length,
                 itemBuilder: (context, index) {
                   return ListTile(
+                    onTap: () async {
+                      await Navigator.push<void>(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) =>
+                              const VideoDetailPage(),
+                        ),
+                      );
+                    },
                     contentPadding: const EdgeInsets.all(8),
                     leading: Image.network(
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdb51KU2fpsY3_4wrF7Rd5oQu1YWm3xZrm1ohGVWrrUQLnZzTo65tZ1BWFfvR1dUAaMI&usqp=CAU',
                       width: 100,
                     ),
-                    title: const Text('【Fulutter超入門】リストを作る方法'),
+                    title: Column(
+                      children: [
+                        const Text(
+                          '【Fulutter超入門】リストを作る方法',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Row(
+                          children: const [
+                            Text(
+                              '267回再生',
+                              style: TextStyle(
+                                fontSize: 13,
+                              ),
+                            ),
+                            Text(
+                              '5日前',
+                              style: TextStyle(
+                                fontSize: 13,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    trailing: const Icon(Icons.more_vert),
                   );
                 },
               ),
