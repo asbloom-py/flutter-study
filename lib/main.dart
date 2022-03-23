@@ -152,7 +152,7 @@ class MyApp extends StatelessWidget {
                     leading: CircleAvatar(
                         backgroundColor: Color.fromARGB(255, 223, 223, 223),
                         child: Icon(
-                          Icons.card_giftcard,
+                          Icons.perm_device_info,
                           color: Colors.black,
                         )),
                     title: Text('Detalles del pedido'),
@@ -269,7 +269,7 @@ class MyApp extends StatelessWidget {
                     color: Color.fromARGB(255, 3, 133, 194),
                   ),
                   ListTile(leading: Icon(Icons.home), title: Text('Remitente')),
-                  //GoogleMaps 挿入する
+                  //GoogleMaps 挿入する.
                   ListTile(
                     leading: Icon(Icons.person),
                     title: Text('Nombre'),
