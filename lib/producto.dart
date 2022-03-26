@@ -16,7 +16,7 @@ class Producto extends StatelessWidget {
         color: Colors.transparent,
         child: Column(
           children: [
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Container(
                   padding: EdgeInsets.only(top: 15),
                   height: 80,
@@ -28,7 +28,7 @@ class Producto extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      Text('Recogida',
+                      Text('Producto',
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.bold)),
                       Text(name),
@@ -45,7 +45,7 @@ class Producto extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      Text('Entrega',
+                      Text('Precio del producto',
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.bold)),
                       Text(name),
