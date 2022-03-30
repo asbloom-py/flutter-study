@@ -41,7 +41,8 @@ VS codeの設定変更.
   },
   "dart.flutterSdkPath": "./.fvm/flutter_sdk",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": true,
+    "source.fixAll": true
   }
 }
 ```
